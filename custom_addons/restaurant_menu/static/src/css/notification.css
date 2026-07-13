@@ -1,0 +1,85 @@
+.custom-pos-notification {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px 14px 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%) !important;
+    color: #ffffff !important;
+    font-size: 14.5px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    box-shadow:
+        0 10px 25px -5px rgba(22, 163, 74, 0.35),
+        0 4px 10px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(6px);
+    animation: slideInNoti 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+    position: relative;
+}
+
+.custom-pos-notification::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.custom-pos-notification .o_notification_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff !important;
+    font-size: 15px !important;
+    margin-right: 0;
+}
+
+.custom-pos-notification .o_notification_content {
+    line-height: 1.4;
+}
+
+.custom-pos-notification.o_notification_warning {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+    box-shadow:
+        0 10px 25px -5px rgba(245, 158, 11, 0.35),
+        0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.custom-pos-notification.o_notification_danger {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+    box-shadow:
+        0 10px 25px -5px rgba(239, 68, 68, 0.35),
+        0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes slideInNoti {
+    0% {
+        transform: translateX(50px) scale(0.95);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.custom-pos-notification.o_notification_close {
+    animation: slideOutNoti 0.25s ease-in forwards;
+}
+
+@keyframes slideOutNoti {
+    to {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+}
