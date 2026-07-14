@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="restaurant_menu.PayOSQRPopup">
+        <Dialog title="props.title" size="'md'" footer="false">
+            <div class="payos-popup d-flex flex-column align-items-center p-2">
+
+                <div class="payos-qr-wrapper mb-3">
+                    <img t-att-src="props.qrImageUrl"
+                         class="payos-qr-image"
+                         alt="PayOS QR Code" />
+                </div>
+
+                <div class="payos-amount mb-2">
+                    <t t-esc="props.formattedAmount" />
+                </div>
+
+                <div t-attf-class="payos-status payos-status-{{props.status}} mb-3">
+                    <t t-if="props.status === 'waiting'">
+                        <i class="fa fa-spinner fa-spin me-2" />
+                        <span>Đang chờ khách quét mã...</span>
+                    </t>
+                    <t t-if="props.status === 'paid'">
+                        <i class="fa fa-check-circle me-2" />
+                        <span>Thanh toán thành công</span>
+                    </t>
+                    <t t-if="props.status === 'expired'">
+                        <i class="fa fa-times-circle me-2" />
+                        <span>Mã QR đã hết hạn</span>
+                    </t>
+                    <t t-if="props.status === 'cancelled'">
+                        <i class="fa fa-ban me-2" />
+                        <span>Đã huỷ thanh toán</span>
+                    </t>
+                </div>
+
+                <button class="btn btn-secondary payos-cancel-btn"
+                        t-on-click="() => props.close()">
+                    Huỷ thanh toán
+                </button>
+
+            </div>
+        </Dialog>
+    </t>
+
+</templates>

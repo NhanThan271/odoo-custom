@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+
+    <t t-name="restaurant_menu.PaymentScreenButtons"
+       t-inherit="point_of_sale.PaymentScreenButtons"
+       t-inherit-mode="extension">
+
+        <xpath expr="//button[contains(@class,'partner-button')]"
+               position="after">
+
+            <button
+                class="btn btn-primary btn-lg w-100 lh-lg"
+                t-on-click="onClickPayOS">
+
+                <i class="fa fa-qrcode me-2"/>
+
+                Thanh toán Online
+
+            </button>
+
+        </xpath>
+
+    </t>
+
+</templates>
