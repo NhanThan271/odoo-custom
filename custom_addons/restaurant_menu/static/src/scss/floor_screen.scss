@@ -1,0 +1,91 @@
+.floor-map,
+.floor-kanban {
+    .table {
+        border-radius: 14px !important;
+        background: #ffffff !important;
+        border: 2px solid #dbe3ea !important;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, .10);
+        transition: transform .2s ease, box-shadow .2s ease;
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, .16);
+        }
+
+        &.selected {
+            outline: 3px solid #6366f1;
+            outline-offset: 2px;
+        }
+    }
+
+    .info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative; // cần để chấm absolute định vị đúng theo .info
+    }
+
+    // Chấm trạng thái: KHÔNG còn nằm trong flex column nữa,
+    // mà là 1 badge nổi ở góc trên bên trái, không chiếm chiều cao nội dung
+    .table-status-dot {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        z-index: 3;
+
+        &.is-free {
+            background: #22c55e;
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, .15);
+        }
+
+        &.is-occupied {
+            background: #f97316;
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, .15);
+        }
+    }
+
+    // Giờ chỉ còn 2 dòng: tên bàn + số ghế -> nhẹ chiều cao hơn nhiều
+    .table-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        width: 100%;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .table-name {
+        font-size: clamp(12px, 2vw, 18px);
+        font-weight: 700;
+        color: #1f2937;
+        white-space: nowrap;
+        line-height: 1.1;
+    }
+
+    .table-seat {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        font-size: 10px;
+        line-height: 1;
+        color: #6b7280;
+
+        i {
+            font-size: 10px;
+        }
+    }
+
+    .order-count {
+        z-index: 6;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
+    }
+}
+
+.floor-kanban .table {
+    min-height: 110px;
+}
