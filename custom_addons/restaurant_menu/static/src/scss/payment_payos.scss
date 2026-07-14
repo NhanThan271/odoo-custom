@@ -1,0 +1,57 @@
+.payos-popup {
+    min-width: 320px;
+
+    .payos-qr-wrapper {
+        padding: 16px;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        background: #ffffff;
+    }
+
+    .payos-qr-image {
+        width: 220px;
+        height: 220px;
+        object-fit: contain;
+
+        @include media-breakpoint-down(sm) {
+            width: 160px;
+            height: 160px;
+        }
+    }
+
+    .payos-amount {
+        font-size: 28px;
+        font-weight: bold;
+        color: $o-brand-primary;
+
+        @include media-breakpoint-down(sm) {
+            font-size: 20px;
+        }
+    }
+
+    .payos-status {
+        font-size: 15px;
+        padding: 6px 14px;
+        border-radius: 20px;
+
+        &.payos-status-waiting {
+            color: #997404;
+            background-color: #fff3cd;
+        }
+
+        &.payos-status-paid {
+            color: #0f5132;
+            background-color: #d1e7dd;
+        }
+
+        &.payos-status-expired,
+        &.payos-status-cancelled {
+            color: #842029;
+            background-color: #f8d7da;
+        }
+    }
+
+    .payos-cancel-btn {
+        min-width: 140px;
+    }
+}
