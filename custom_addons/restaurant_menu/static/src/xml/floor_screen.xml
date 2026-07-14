@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="restaurant_menu.FloorScreen"
+       t-inherit="pos_restaurant.FloorScreen"
+       t-inherit-mode="extension">
+
+        <!-- Thay phần hiển thị số bàn -->
+        <xpath expr="//div[contains(@class,'label')]" position="replace">
+            <span class="table-status-dot" t-attf-class="{{ isOccupied ? 'is-occupied' : 'is-free' }}"/>
+            <div class="table-content">
+                <div class="table-name">BÀN <t t-esc="table.table_number"/></div>
+                <div class="table-seat">
+                    <i class="fa fa-users" role="img" aria-label="Seats"/>
+                    <span t-esc="table.seats"/>
+                </div>
+            </div>
+        </xpath>
+
+        <!-- Nền khu vực floor map -->
+        <xpath expr="//div[@t-ref='floor-map-scroll']" position="attributes">
+            <attribute name="t-attf-style">background:#f3f1ec;</attribute>
+        </xpath>
+
+    </t>
+
+</templates>
